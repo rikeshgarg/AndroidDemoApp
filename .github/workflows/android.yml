@@ -24,24 +24,10 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Build AAR
-      run: bash ./gradlew :simplelibrary:assemble
-    - name: Upload aar
+    - name: Upload apk
       uses: actions/upload-artifact@v2.2.4
       with:
         name: app
-        path: app/build/outputs/apk/debug/app-debug.apk
-    - name: Generate Release APK
-      run: ./gradlew assembleRelease
-    - name: Sign APK
-      uses: r0adkll/sign-android-release@v1
-      id: sign_app
-      with:
-        releaseDirectory: app/build/outputs/apk/release
-        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-        alias: ${{ secrets.ALIAS }}
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Signed app bundle
-        path: ${{steps.sign_app.outputs.signedReleaseFile}}
+        path: |
+          app/build/outputs/apk/debug/app-debug.apk
+          app/Readme.txt
