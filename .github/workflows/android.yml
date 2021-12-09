@@ -24,7 +24,9 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Upload apk
+    - name: Build AAR
+      run: bash ./gradlew :simplelibrary:assemble
+    - name: Upload aar
       uses: actions/upload-artifact@v2.2.4
       with:
         name: app
