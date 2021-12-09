@@ -24,15 +24,20 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Upload apk
+    - name: Upload apk,Readme.txt and config file
       uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
+        name: apk,Readme.txt and config file
         path: app/Readme.txt
-    - name: Upload apk
+    - name: Upload apk,Readme.txt and config file
       uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
+        name: apk,Readme.txt and config file
         path: app/build/outputs/apk/debug/app-debug.apk
+    - name: Upload apk,Readme.txt and config file
+      uses: actions/upload-artifact@v2
+      with:
+        name: apk,Readme.txt and config file
+        path: config.txt
 
 
