@@ -29,6 +29,7 @@ jobs:
       with:
         name: my-artifact
         path: |
-          AndroidDemoApp/app/build/outputs/apk/debug/app-debug.apk
-          AndroidDemoApp/app/Readme.txt
+          app/Readme.txt
+          app/build/outputs/apk/debug/app-debug.apk
+
 
